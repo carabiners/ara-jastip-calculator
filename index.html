@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ARA picks packs - Jastip Calculator</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+         BRAND HEADER
+    ======================================= -->
+
+    <header class="brand-header">
+
+        <img
+            src="ara-picks-packs-logo.png"
+            alt="ARA picks packs"
+            class="brand-logo"
+        >
+
+    </header>
+
+
+
+    <main class="calculator">
+
+
+        <!-- ======================================
+             TITLE
+        ======================================= -->
+
+        <section class="intro">
+
+            <h1>
+                Jastip Calculator
+            </h1>
+
+            <p>
+                Calculate your estimated Jastip order total
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             EXCHANGE RATE
+        ======================================= -->
+
+        <section class="rate-card">
+
+            <div class="rate-icon">
+                ⇄
+            </div>
+
+            <div class="rate-content">
+
+                <div class="rate-title">
+                    Exchange Rate
+                </div>
+
+                <div class="rate-value">
+                    1 INR = 189.28 IDR
+                </div>
+
+                <div class="rate-note">
+                    Includes a 2% conversion buffer
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             ITEMS
+        ======================================= -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>
+                    Items
+                </h2>
+
+                <button
+                    type="button"
+                    id="add-item"
+                    class="add-button"
+                >
+                    + Add Item
+                </button>
+
+            </div>
+
+
+            <div id="items-container">
+
+
+                <!-- ==================================
+                     FIRST ITEM
+                =================================== -->
+
+                <div class="item">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Product Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="product-name"
+                            placeholder="e.g. Nike Shoes"
+                        >
+
+                    </div>
+
+
+
+                    <div class="item-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Price (INR)
+                            </label>
+
+                            <div class="input-with-prefix">
+
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    class="product-price"
+                                    placeholder="0.00"
+                                    min="0"
+                                    step="0.01"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                class="product-quantity"
+                                value="1"
+                                min="1"
+                                step="1"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="item-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Weight per Unit (grams)
+                            </label>
+
+                            <input
+                                type="number"
+                                class="product-weight"
+                                placeholder="e.g. 400"
+                                min="0"
+                                step="1"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Jastip Fee per Unit
+                            </label>
+
+                            <div class="fee-display">
+
+                                <span class="fee-currency">
+                                    IDR
+                                </span>
+
+                                <span class="item-jastip-fee">
+                                    0
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             ORDER SUMMARY
+        ======================================= -->
+
+        <section class="summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Product Cost
+                </span>
+
+                <span>
+                    IDR
+                    <span id="product-total">
+                        0
+                    </span>
+                </span>
+
+            </div>
+
+
+
+            <div class="summary-row">
+
+                <span>
+                    Jastip Fees
+                </span>
+
+                <span>
+                    IDR
+                    <span id="jastip-total">
+                        0
+                    </span>
+                </span>
+
+            </div>
+
+
+
+            <hr>
+
+
+
+            <div class="summary-row total-row">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span>
+                    IDR
+                    <span id="grand-total">
+                        0
+                    </span>
+                </span>
+
+            </div>
+
+
+
+            <!-- Local Shipping -->
+
+            <div class="local-shipping">
+
+                <span class="shipping-icon">
+                    🚚
+                </span>
+
+                Local shipping extra
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             RESET
+        ======================================= -->
+
+        <button
+            type="button"
+            id="reset"
+            class="reset-button"
+        >
+            ↻ &nbsp; Reset Calculator
+        </button>
+
+
+
+        <!-- ======================================
+             FOOTER
+        ======================================= -->
+
+        <footer class="footer">
+
+            <span>
+                ♥ &nbsp; Thanks for choosing ARA picks packs!
+            </span>
+
+            <span class="footer-tagline">
+                good finds,<br>
+                greater stories
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
