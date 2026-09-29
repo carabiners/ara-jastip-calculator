@@ -17,7 +17,7 @@
 // Effective rate:
 // 1 INR = 189.2814 IDR
 
-const EXCHANGE_RATE = 185.57 * 1.02;
+const EXCHANGE_RATE = 186.00 * 1.02;
 
 
 // ========================================
