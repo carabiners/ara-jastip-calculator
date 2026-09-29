@@ -565,7 +565,7 @@ input:focus {
         Arial,
         sans-serif;
 
-    font-size: 27px;
+    font-size: 16px;
 
     font-weight: 700;
 
@@ -587,6 +587,8 @@ input:focus {
 
     padding-left: 22px;
 
+    font-size: 13px;
+
 }
 
 
@@ -595,6 +597,8 @@ input:focus {
     margin-bottom: 12px;
 
     line-height: 1.55;
+
+    font-size: 13px;
 
 }
 
@@ -624,6 +628,8 @@ input:focus {
     border-radius: 10px;
 
     line-height: 1.8;
+
+    font-size: 13px;
 
 }
 
@@ -735,7 +741,7 @@ input:focus {
 
     .brand-logo {
 
-        width: 75px;
+        width: 100px;
 
     }
 
