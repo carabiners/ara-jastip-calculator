@@ -76,7 +76,28 @@ body {
 
     padding: 20px;
 
-    border-bottom: 1px solid var(--brown);
+    position: relative;
+
+}
+
+
+.brand-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 6%;
+
+    right: 6%;
+
+    height: 3px;
+
+    background: var(--brown);
+
+    border-radius: 3px;
 
 }
 
