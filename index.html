@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>ARA picks packs - Jastip Calculator</title>
+    <title>ARA picks packs - KALKULATOR PO BUKU</title>
 
     <link
         rel="stylesheet"
@@ -49,11 +49,11 @@
         <section class="intro">
 
             <h1>
-                Jastip Calculator
+                KALKULATOR PO BUKU
             </h1>
 
             <p>
-                Calculate your estimated Jastip order total
+                Input harga &amp; berat 1 BUKU per penggunaan
             </p>
 
         </section>
@@ -61,37 +61,7 @@
 
 
         <!-- ======================================
-             EXCHANGE RATE
-        ======================================= -->
-
-        <section class="rate-card">
-
-            <div class="rate-icon">
-                ⇄
-            </div>
-
-            <div class="rate-content">
-
-                <div class="rate-title">
-                    Exchange Rate
-                </div>
-
-                <div class="rate-value">
-                    1 INR = 189.28 IDR
-                </div>
-
-                <div class="rate-note">
-                    Includes a 2% conversion buffer
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             ITEMS
+             BOOK CALCULATOR
         ======================================= -->
 
         <section class="card">
@@ -99,7 +69,7 @@
             <div class="section-header">
 
                 <h2>
-                    Items
+                    KALKULATOR PO BUKU
                 </h2>
 
                 <button
@@ -107,7 +77,7 @@
                     id="add-item"
                     class="add-button"
                 >
-                    + Add Item
+                    + Tambah Buku
                 </button>
 
             </div>
@@ -117,115 +87,94 @@
 
 
                 <!-- ==================================
-                     FIRST ITEM
+                     FIRST BOOK
                 =================================== -->
 
                 <div class="item">
 
 
+                    <!-- Book Price -->
+
                     <div class="form-group">
 
                         <label>
-                            Product Name
+                            Harga buku (Rs)
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                class="product-price"
+                                placeholder="Masukkan harga buku"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Book Weight -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Berat buku (gram)
                         </label>
 
                         <input
-                            type="text"
-                            class="product-name"
-                            placeholder="e.g. Nike Shoes"
+                            type="number"
+                            class="product-weight"
+                            placeholder="Masukkan berat buku"
+                            min="0"
+                            step="1"
                         >
 
                     </div>
 
 
 
-                    <div class="item-row">
+                    <!-- Total Price -->
 
+                    <div class="form-group total-price-group">
 
-                        <div class="form-group">
+                        <label>
+                            Total harga* (IDR)
+                        </label>
 
-                            <label>
-                                Price (INR)
-                            </label>
+                        <div class="total-price-display">
 
-                            <div class="input-with-prefix">
+                            <span class="total-price-currency">
+                                IDR
+                            </span>
 
-                                <span>₹</span>
-
-                                <input
-                                    type="number"
-                                    class="product-price"
-                                    placeholder="0.00"
-                                    min="0"
-                                    step="0.01"
-                                >
-
-                            </div>
+                            <span class="item-total-price">
+                                0
+                            </span>
 
                         </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Quantity
-                            </label>
-
-                            <input
-                                type="number"
-                                class="product-quantity"
-                                value="1"
-                                min="1"
-                                step="1"
-                            >
-
-                        </div>
-
 
                     </div>
 
 
 
-                    <div class="item-row">
+                    <!-- Remarks -->
 
+                    <div class="remarks">
 
-                        <div class="form-group">
-
-                            <label>
-                                Weight per Unit (grams)
-                            </label>
-
-                            <input
-                                type="number"
-                                class="product-weight"
-                                placeholder="e.g. 400"
-                                min="0"
-                                step="1"
-                            >
-
+                        <div>
+                            * Total harga (IDR) mencakup harga barang,
+                            handling, dan packaging
                         </div>
 
-
-                        <div class="form-group">
-
-                            <label>
-                                Jastip Fee per Unit
-                            </label>
-
-                            <div class="fee-display">
-
-                                <span class="fee-currency">
-                                    IDR
-                                </span>
-
-                                <span class="item-jastip-fee">
-                                    0
-                                </span>
-
-                            </div>
-
+                        <div>
+                            ** Tidak termasuk harga ongkir dari Jakarta Pusat
                         </div>
-
 
                     </div>
 
@@ -239,80 +188,100 @@
 
 
         <!-- ======================================
-             ORDER SUMMARY
+             HOW TO USE
         ======================================= -->
 
-        <section class="summary">
+        <section class="info-card">
 
             <h2>
-                Order Summary
+                Cara menggunakan KALKULATOR PO BUKU
             </h2>
 
 
-            <div class="summary-row">
+            <ol>
 
-                <span>
-                    Product Cost
-                </span>
+                <li>
+                    Untuk input harga buku, pastikan currency yang digunakan
+                    adalah Rs (Rupee).
+                </li>
 
-                <span>
-                    IDR
-                    <span id="product-total">
-                        0
-                    </span>
-                </span>
+                <li>
+                    Untuk input berat buku:
+                    <ol type="a">
+                        <li>
+                            Cari section "BOOK DETAILS - see all details".
+                        </li>
 
-            </div>
+                        <li>
+                            Input detail di section "Item weight".
+                        </li>
+                    </ol>
+                </li>
 
+                <li>
+                    Total harga adalah total per 1 buku; mencakup harga buku
+                    + handling + packaging, tapi belum termasuk ongkir dari
+                    Jakarta Pusat.
+                </li>
 
+                <li>
+                    Jika ingin melakukan pembelian lebih dari 1 buku:
+                    <ol type="a">
+                        <li>
+                            Input harga &amp; berat buku satu per satu.
+                        </li>
 
-            <div class="summary-row">
+                        <li>
+                            Infokan seluruh pesanan buku di form pesanan,
+                            lalu admin akan menginfokan harga total akumulatif.
+                        </li>
+                    </ol>
+                </li>
 
-                <span>
-                    Jastip Fees
-                </span>
+            </ol>
 
-                <span>
-                    IDR
-                    <span id="jastip-total">
-                        0
-                    </span>
-                </span>
-
-            </div>
-
-
-
-            <hr>
-
-
-
-            <div class="summary-row total-row">
-
-                <span>
-                    TOTAL
-                </span>
-
-                <span>
-                    IDR
-                    <span id="grand-total">
-                        0
-                    </span>
-                </span>
-
-            </div>
+        </section>
 
 
 
-            <!-- Local Shipping -->
+        <!-- ======================================
+             HOW TO ORDER
+        ======================================= -->
 
-            <div class="local-shipping">
+        <section class="info-card">
 
-                <span class="shipping-icon">
-                    🚚
-                </span>
+            <h2>
+                Cara melakukan pemesanan
+            </h2>
 
-                Local shipping extra
+
+            <p>
+                Untuk pemesanan buku, mohon isi &amp; kirim fix order form
+                ke PC WA:
+            </p>
+
+
+            <div class="order-form">
+
+                <strong>
+                    FIX ORDER FORM
+                </strong>
+
+                <div>Nama:</div>
+
+                <div>No.HP:</div>
+
+                <div>Alamat pengiriman:</div>
+
+                <div>Pengiriman: lion reg / lion economy</div>
+
+                <div>
+                    Pesanan + jumlah + link product:
+                </div>
+
+                <div>
+                    Catatan tambahan: paperback / hardcopy / seller tertentu
+                </div>
 
             </div>
 

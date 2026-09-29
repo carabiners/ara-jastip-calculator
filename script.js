@@ -1,6 +1,6 @@
-
 // ========================================
-// JASTIP CALCULATOR
+// ARA PICKS PACKS
+// KALKULATOR PO BUKU
 // ========================================
 
 
@@ -32,27 +32,15 @@ const addItemButton =
     document.querySelector("#add-item");
 
 
-const productTotal =
-    document.querySelector("#product-total");
-
-
-const jastipTotal =
-    document.querySelector("#jastip-total");
-
-
-const grandTotal =
-    document.querySelector("#grand-total");
-
-
 const resetButton =
     document.querySelector("#reset");
 
 
 // ========================================
-// JASTIP FEE RULE
+// JASTIP / HANDLING FEE RULE
 // ========================================
 
-function getJastipFee(weight) {
+function getHandlingFee(weight) {
 
     if (weight < 300) {
 
@@ -86,7 +74,90 @@ function formatIDR(amount) {
 
 
 // ========================================
-// CALCULATE EVERYTHING
+// CALCULATE ONE BOOK
+// ========================================
+
+function calculateItemTotal(item) {
+
+
+    const priceInput =
+        item.querySelector(".product-price");
+
+
+    const weightInput =
+        item.querySelector(".product-weight");
+
+
+    const totalDisplay =
+        item.querySelector(".item-total-price");
+
+
+    const price =
+        parseFloat(priceInput.value);
+
+
+    const weight =
+        parseFloat(weightInput.value);
+
+
+    // ====================================
+    // DO NOT CALCULATE UNTIL BOTH
+    // PRICE AND WEIGHT ARE ENTERED
+    // ====================================
+
+    if (
+        isNaN(price) ||
+        isNaN(weight)
+    ) {
+
+        totalDisplay.textContent = "0";
+
+        return;
+
+    }
+
+
+    // ====================================
+    // Convert book price from INR to IDR
+    // ====================================
+
+    const bookPriceIDR =
+        price * EXCHANGE_RATE;
+
+
+    // ====================================
+    // Handling + packaging fee
+    // ====================================
+
+    const handlingFee =
+        getHandlingFee(weight);
+
+
+    // ====================================
+    // Total price per book
+    // ====================================
+
+    const totalPrice =
+        bookPriceIDR
+        + handlingFee;
+
+
+// ====================================
+// Round UP to nearest IDR 1,000
+// ====================================
+
+const roundedTotal =
+    Math.ceil(totalPrice / 1000) * 1000;
+
+
+totalDisplay.textContent =
+    formatIDR(roundedTotal);
+
+}
+
+
+// ========================================
+// CALCULATE ALL BOOKS
 // ========================================
 
 function calculateTotals() {
@@ -96,115 +167,17 @@ function calculateTotals() {
         document.querySelectorAll(".item");
 
 
-    let totalProductINR = 0;
-
-    let totalJastipIDR = 0;
-
-
-    // ====================================
-    // Calculate each item
-    // ====================================
-
     items.forEach(function (item) {
 
-
-        const priceInput =
-            item.querySelector(".product-price");
-
-
-        const quantityInput =
-            item.querySelector(".product-quantity");
-
-
-        const weightInput =
-            item.querySelector(".product-weight");
-
-
-        const feeDisplay =
-            item.querySelector(".item-jastip-fee");
-
-
-        const price =
-            parseFloat(priceInput.value) || 0;
-
-
-        const quantity =
-            parseFloat(quantityInput.value) || 0;
-
-
-        const weight =
-            parseFloat(weightInput.value) || 0;
-
-
-        // Product cost in INR
-
-        const itemProductINR =
-            price * quantity;
-
-
-        totalProductINR +=
-            itemProductINR;
-
-
-        // Jastip fee
-
-        const feePerUnit =
-            getJastipFee(weight);
-
-
-        const itemJastipIDR =
-            feePerUnit * quantity;
-
-
-        totalJastipIDR +=
-            itemJastipIDR;
-
-
-        // Display Jastip fee per unit
-
-        feeDisplay.textContent =
-            formatIDR(feePerUnit);
+        calculateItemTotal(item);
 
     });
-
-
-    // ====================================
-    // Convert Products INR → IDR
-    // ====================================
-
-    const totalProductIDR =
-        totalProductINR * EXCHANGE_RATE;
-
-
-    // ====================================
-    // Grand Total
-    // ====================================
-
-    const total =
-        totalProductIDR
-        + totalJastipIDR;
-
-
-    // ====================================
-    // Update Screen
-    // ====================================
-
-    productTotal.textContent =
-        formatIDR(totalProductIDR);
-
-
-    jastipTotal.textContent =
-        formatIDR(totalJastipIDR);
-
-
-    grandTotal.textContent =
-        formatIDR(total);
 
 }
 
 
 // ========================================
-// ADD NEW ITEM
+// ADD NEW BOOK
 // ========================================
 
 function addItem() {
@@ -223,104 +196,74 @@ function addItem() {
         <div class="form-group">
 
             <label>
-                Product Name
+                Harga buku (Rs)
+            </label>
+
+            <div class="input-with-prefix">
+
+                <span>₹</span>
+
+                <input
+                    type="number"
+                    class="product-price"
+                    placeholder="Masukkan harga buku"
+                    min="0"
+                    step="0.01"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Berat buku (gram)
             </label>
 
             <input
-                type="text"
-                class="product-name"
-                placeholder="e.g. Nike Shoes"
+                type="number"
+                class="product-weight"
+                placeholder="Masukkan berat buku"
+                min="0"
+                step="1"
             >
 
         </div>
 
 
-        <div class="item-row">
+        <div class="form-group total-price-group">
 
+            <label>
+                Total harga* (IDR)
+            </label>
 
-            <div class="form-group">
+            <div class="total-price-display">
 
-                <label>
-                    Price (INR)
-                </label>
+                <span class="total-price-currency">
+                    IDR
+                </span>
 
-                <div class="input-with-prefix">
-
-                    <span>₹</span>
-
-                    <input
-                        type="number"
-                        class="product-price"
-                        placeholder="0.00"
-                        min="0"
-                        step="0.01"
-                    >
-
-                </div>
+                <span class="item-total-price">
+                    0
+                </span>
 
             </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Quantity
-                </label>
-
-                <input
-                    type="number"
-                    class="product-quantity"
-                    value="1"
-                    min="1"
-                    step="1"
-                >
-
-            </div>
-
 
         </div>
 
 
-        <div class="item-row">
+        <div class="remarks">
 
-
-            <div class="form-group">
-
-                <label>
-                    Weight per Unit (grams)
-                </label>
-
-                <input
-                    type="number"
-                    class="product-weight"
-                    placeholder="e.g. 400"
-                    min="0"
-                    step="1"
-                >
-
+            <div>
+                * Total harga (IDR) mencakup harga barang,
+                handling, dan packaging
             </div>
 
-
-            <div class="form-group">
-
-                <label>
-                    Jastip Fee per Unit
-                </label>
-
-                <div class="fee-display">
-
-                    <span class="fee-currency">
-                        IDR
-                    </span>
-
-                    <span class="item-jastip-fee">
-                        0
-                    </span>
-
-                </div>
-
+            <div>
+                ** Tidak termasuk harga ongkir dari Jakarta Pusat
             </div>
-
 
         </div>
 
@@ -329,7 +272,7 @@ function addItem() {
             type="button"
             class="remove-item"
         >
-            Remove Item
+            Hapus Buku
         </button>
 
     `;
@@ -339,7 +282,7 @@ function addItem() {
 
 
     // ====================================
-    // Remove Item
+    // Remove Book
     // ====================================
 
     const removeButton =
@@ -351,8 +294,6 @@ function addItem() {
         function () {
 
             item.remove();
-
-            calculateTotals();
 
         }
     );
@@ -366,39 +307,37 @@ function addItem() {
         item.querySelector(".product-price");
 
 
-    const quantityInput =
-        item.querySelector(".product-quantity");
-
-
     const weightInput =
         item.querySelector(".product-weight");
 
 
     priceInput.addEventListener(
         "input",
-        calculateTotals
-    );
+        function () {
 
+            calculateItemTotal(item);
 
-    quantityInput.addEventListener(
-        "input",
-        calculateTotals
+        }
     );
 
 
     weightInput.addEventListener(
         "input",
-        calculateTotals
+        function () {
+
+            calculateItemTotal(item);
+
+        }
     );
 
 
-    calculateTotals();
+    calculateItemTotal(item);
 
 }
 
 
 // ========================================
-// ADD ITEM BUTTON
+// ADD BOOK BUTTON
 // ========================================
 
 addItemButton.addEventListener(
@@ -408,7 +347,7 @@ addItemButton.addEventListener(
 
 
 // ========================================
-// FIRST ITEM LISTENERS
+// FIRST BOOK LISTENERS
 // ========================================
 
 const firstItem =
@@ -419,15 +358,11 @@ firstItem
     .querySelector(".product-price")
     .addEventListener(
         "input",
-        calculateTotals
-    );
+        function () {
 
+            calculateItemTotal(firstItem);
 
-firstItem
-    .querySelector(".product-quantity")
-    .addEventListener(
-        "input",
-        calculateTotals
+        }
     );
 
 
@@ -435,7 +370,11 @@ firstItem
     .querySelector(".product-weight")
     .addEventListener(
         "input",
-        calculateTotals
+        function () {
+
+            calculateItemTotal(firstItem);
+
+        }
     );
 
 

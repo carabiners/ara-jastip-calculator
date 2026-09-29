@@ -1,6 +1,6 @@
 /* ==========================================
    ARA PICKS PACKS
-   JASTIP CALCULATOR THEME
+   KALKULATOR PO BUKU
 ========================================== */
 
 
@@ -11,25 +11,25 @@
 
 :root {
 
-    --orange: #ff8c0a;
+    --saffron: #F78A0B;
 
-    --orange-dark: #d85d0b;
+    --saffron-dark: #D96F00;
 
-    --orange-light: #fff0d8;
+    --saffron-light: #FFF0D2;
 
-    --orange-soft: #fff6e8;
+    --saffron-soft: #FFF8EA;
 
-    --cream: #fffaf2;
+    --cream: #FFF9F0;
 
-    --cream-dark: #f8ead7;
+    --cream-dark: #F8E3C2;
 
-    --brown: #48231c;
+    --brown: #5A2E1B;
 
-    --brown-light: #7d6256;
+    --brown-light: #8A6A55;
 
-    --border: #ead9c5;
+    --border: #E8CFAF;
 
-    --white: #ffffff;
+    --white: #FFFFFF;
 
 }
 
@@ -44,11 +44,11 @@ body {
     margin: 0;
 
     font-family:
+        Calibri,
         Arial,
-        Helvetica,
         sans-serif;
 
-    background: var(--cream);
+    background: var(--saffron);
 
     color: var(--brown);
 
@@ -64,9 +64,9 @@ body {
 
     width: 100%;
 
-    height: 190px;
+    height: 150px;
 
-    background: var(--orange);
+    background: var(--saffron);
 
     display: flex;
 
@@ -74,14 +74,14 @@ body {
 
     align-items: center;
 
-    padding: 25px 20px;
+    padding: 20px;
 
 }
 
 
 .brand-logo {
 
-    width: 260px;
+    width: 200px;
 
     max-width: 75%;
 
@@ -128,14 +128,16 @@ body {
 
     margin: 0;
 
-    color: var(--orange-dark);
+    color: var(--white);
 
     font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+        Calibri,
+        Arial,
+        sans-serif;
 
     font-size: 42px;
+
+    font-weight: 700;
 
     line-height: 1.2;
 
@@ -146,95 +148,9 @@ body {
 
     margin: 10px 0 0;
 
-    color: var(--brown-light);
+    color: var(--white);
 
     font-size: 18px;
-
-}
-
-
-/* ==========================================
-   EXCHANGE RATE
-========================================== */
-
-
-.rate-card {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    background: var(--orange-light);
-
-    border-radius: 16px;
-
-    padding: 25px;
-
-    margin-bottom: 22px;
-
-}
-
-
-.rate-icon {
-
-    width: 72px;
-
-    height: 72px;
-
-    min-width: 72px;
-
-    border-radius: 50%;
-
-    background: #ffe3b5;
-
-    color: var(--orange);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 38px;
-
-    font-weight: bold;
-
-}
-
-
-.rate-title {
-
-    color: var(--orange-dark);
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-}
-
-
-.rate-value {
-
-    margin-top: 5px;
-
-    font-size: 30px;
-
-    font-weight: bold;
-
-    color: var(--brown);
-
-}
-
-
-.rate-note {
-
-    margin-top: 4px;
-
-    color: var(--brown-light);
-
-    font-size: 14px;
 
 }
 
@@ -257,7 +173,7 @@ body {
     margin-bottom: 22px;
 
     box-shadow:
-        0 3px 12px rgba(90, 50, 20, 0.04);
+        0 3px 12px rgba(90, 50, 20, 0.05);
 
 }
 
@@ -286,14 +202,16 @@ body {
 
     margin: 0;
 
-    color: var(--orange-dark);
+    color: var(--saffron-dark);
 
     font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+        Calibri,
+        Arial,
+        sans-serif;
 
-    font-size: 32px;
+    font-size: 30px;
+
+    font-weight: 700;
 
 }
 
@@ -308,6 +226,11 @@ button {
     cursor: pointer;
 
     border: none;
+
+    font-family:
+        Calibri,
+        Arial,
+        sans-serif;
 
     font-size: 15px;
 
@@ -329,9 +252,9 @@ button:hover {
 
 .add-button {
 
-    background: var(--orange);
+    background: var(--saffron);
 
-    color: white;
+    color: var(--white);
 
     padding: 12px 18px;
 
@@ -342,7 +265,7 @@ button:hover {
 
 .add-button:hover {
 
-    background: var(--orange-dark);
+    background: var(--saffron-dark);
 
 }
 
@@ -362,7 +285,7 @@ button:hover {
 
     margin-top: 18px;
 
-    background: var(--orange-soft);
+    background: var(--saffron-soft);
 
 }
 
@@ -374,7 +297,7 @@ button:hover {
 
 .form-group {
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
 }
 
@@ -392,7 +315,7 @@ label {
 
     font-weight: 600;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
     color: var(--brown);
 
@@ -405,13 +328,18 @@ input {
 
     padding: 13px;
 
-    border: 1px solid #dfcdb8;
+    border: 1px solid #DFCDB8;
 
     border-radius: 9px;
 
+    font-family:
+        Calibri,
+        Arial,
+        sans-serif;
+
     font-size: 16px;
 
-    background: white;
+    background: var(--white);
 
     color: var(--brown);
 
@@ -420,18 +348,18 @@ input {
 
 input::placeholder {
 
-    color: #b39a88;
+    color: #B39A88;
 
 }
 
 
 input:focus {
 
-    outline: 2px solid var(--orange);
+    outline: 2px solid var(--saffron);
 
     outline-offset: 1px;
 
-    border-color: var(--orange);
+    border-color: var(--saffron);
 
 }
 
@@ -452,11 +380,11 @@ input:focus {
 
 .input-with-prefix span {
 
-    background: #f3e5d4;
+    background: #F3E5D4;
 
     padding: 13px;
 
-    border: 1px solid #dfcdb8;
+    border: 1px solid #DFCDB8;
 
     border-right: none;
 
@@ -477,61 +405,80 @@ input:focus {
 
 
 /* ==========================================
-   ITEM ROW
+   TOTAL PRICE
 ========================================== */
 
 
-.item-row {
+.total-price-group {
 
-    display: grid;
-
-    grid-template-columns: 2fr 1fr;
-
-    gap: 18px;
+    margin-top: 4px;
 
 }
 
 
-/* ==========================================
-   FEE DISPLAY
-========================================== */
-
-
-.fee-display {
+.total-price-display {
 
     width: 100%;
 
-    min-height: 48px;
+    min-height: 52px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 9px;
 
     padding: 13px;
 
-    background: #f4e7d6;
+    background: #F4E1C2;
 
-    border: 1px solid #dfcdb8;
+    border: 1px solid #DFC29F;
 
     border-radius: 9px;
 
-    font-size: 16px;
+    color: var(--brown);
+
+    font-size: 18px;
+
+    font-weight: 700;
 
 }
 
 
-.fee-currency {
+.total-price-currency {
 
-    font-weight: bold;
+    font-weight: 700;
 
 }
 
 
-.item-jastip-fee {
+.item-total-price {
 
-    font-weight: bold;
+    font-weight: 700;
+
+}
+
+
+/* ==========================================
+   REMARKS
+========================================== */
+
+
+.remarks {
+
+    margin-top: 14px;
+
+    padding: 13px 15px;
+
+    border-left: 3px solid var(--saffron);
+
+    background: #FFF3DE;
+
+    color: var(--brown-light);
+
+    font-size: 13px;
+
+    line-height: 1.5;
 
 }
 
@@ -547,7 +494,7 @@ input:focus {
 
     padding: 9px 13px;
 
-    background: #f3e5d4;
+    background: #F3E5D4;
 
     color: var(--brown);
 
@@ -556,112 +503,115 @@ input:focus {
 
 .remove-item:hover {
 
-    background: #ead7c1;
+    background: #E8D0AD;
 
 }
 
 
 /* ==========================================
-   SUMMARY
+   INFORMATION CARDS
 ========================================== */
 
 
-.summary {
+.info-card {
 
-    background: var(--orange);
+    background: var(--white);
 
-    color: white;
+    border: 1px solid var(--border);
 
     border-radius: 16px;
 
-    padding: 28px;
+    padding: 25px;
 
     margin-top: 22px;
 
     box-shadow:
-        0 5px 18px rgba(255, 140, 10, 0.18);
+        0 3px 12px rgba(90, 50, 20, 0.04);
 
 }
 
 
-.summary h2 {
+.info-card h2 {
 
-    margin: 0 0 24px;
+    margin: 0 0 18px;
+
+    color: var(--saffron-dark);
 
     font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+        Calibri,
+        Arial,
+        sans-serif;
 
-    font-size: 32px;
+    font-size: 27px;
 
-}
-
-
-.summary-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 15px;
-
-    font-size: 17px;
+    font-weight: 700;
 
 }
 
 
-.summary hr {
+.info-card p {
 
-    border: none;
+    margin: 0 0 18px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-
-    margin: 22px 0;
+    line-height: 1.6;
 
 }
 
 
-.total-row {
+.info-card ol {
 
-    font-size: 25px;
+    margin: 0;
 
-    font-weight: bold;
-
-}
-
-
-/* ==========================================
-   LOCAL SHIPPING
-========================================== */
-
-
-.local-shipping {
-
-    margin-top: 22px;
-
-    padding: 13px 18px;
-
-    border-radius: 30px;
-
-    background: #ffd18b;
-
-    color: var(--orange-dark);
-
-    text-align: center;
-
-    font-size: 15px;
-
-    font-weight: 600;
+    padding-left: 22px;
 
 }
 
 
-.shipping-icon {
+.info-card li {
 
-    margin-right: 6px;
+    margin-bottom: 12px;
+
+    line-height: 1.55;
+
+}
+
+
+.info-card li:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.info-card ol ol {
+
+    margin-top: 8px;
+
+}
+
+
+.order-form {
+
+    padding: 17px;
+
+    background: var(--saffron-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+.order-form strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--saffron-dark);
 
 }
 
@@ -681,9 +631,9 @@ input:focus {
 
     background: transparent;
 
-    color: var(--orange-dark);
+    color: var(--saffron-dark);
 
-    border: 2px solid var(--orange);
+    border: 2px solid var(--saffron);
 
     font-size: 16px;
 
@@ -694,7 +644,7 @@ input:focus {
 
 .reset-button:hover {
 
-    background: var(--orange-light);
+    background: var(--saffron-light);
 
 }
 
@@ -718,7 +668,7 @@ input:focus {
 
     gap: 20px;
 
-    color: var(--brown-light);
+    color: var(--white);
 
     font-size: 14px;
 
@@ -730,13 +680,13 @@ input:focus {
     text-align: right;
 
     font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+        Calibri,
+        Arial,
+        sans-serif;
 
     font-style: italic;
 
-    color: var(--brown-light);
+    color: var(--white);
 
     line-height: 1.25;
 
@@ -753,16 +703,16 @@ input:focus {
 
     .brand-header {
 
-        height: 155px;
+        height: 125px;
 
-        padding: 20px;
+        padding: 15px;
 
     }
 
 
     .brand-logo {
 
-        width: 220px;
+        width: 75px;
 
     }
 
@@ -776,7 +726,7 @@ input:focus {
 
     .intro h1 {
 
-        font-size: 34px;
+        font-size: 32px;
 
     }
 
@@ -784,35 +734,6 @@ input:focus {
     .intro p {
 
         font-size: 16px;
-
-    }
-
-
-    .rate-card {
-
-        padding: 20px;
-
-        gap: 14px;
-
-    }
-
-
-    .rate-icon {
-
-        width: 55px;
-
-        height: 55px;
-
-        min-width: 55px;
-
-        font-size: 28px;
-
-    }
-
-
-    .rate-value {
-
-        font-size: 23px;
 
     }
 
@@ -835,7 +756,7 @@ input:focus {
 
     .section-header h2 {
 
-        font-size: 28px;
+        font-size: 27px;
 
     }
 
@@ -854,39 +775,16 @@ input:focus {
     }
 
 
-    .item-row {
+    .info-card {
 
-        grid-template-columns: 1fr;
-
-        gap: 0;
+        padding: 18px;
 
     }
 
 
-    .summary {
+    .info-card h2 {
 
-        padding: 22px;
-
-    }
-
-
-    .summary h2 {
-
-        font-size: 28px;
-
-    }
-
-
-    .summary-row {
-
-        font-size: 15px;
-
-    }
-
-
-    .total-row {
-
-        font-size: 21px;
+        font-size: 24px;
 
     }
 
