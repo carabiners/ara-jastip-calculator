@@ -846,7 +846,7 @@ input:focus {
     border: 1px solid var(--border);
     border-radius: 10px;
     line-height: 1.5;
-    word-spacing: 2.5px;
+    word-spacing: 3px;
 }
 
 .instructions-box > ol {
@@ -868,5 +868,5 @@ input:focus {
 }
 
 .instructions-box ol ol li {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
