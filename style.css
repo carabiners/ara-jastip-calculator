@@ -158,7 +158,7 @@ body {
         Arial,
         sans-serif;
 
-    font-size: 34px;
+    font-size: 26px;
 
     font-weight: 700;
 
@@ -232,7 +232,7 @@ body {
         Arial,
         sans-serif;
 
-    font-size: 30px;
+    font-size: 26px;
 
     font-weight: 700;
 
@@ -749,7 +749,7 @@ input:focus {
 
     .intro h1 {
 
-        font-size: 32px;
+        font-size: 26px;
 
     }
 
@@ -779,7 +779,7 @@ input:focus {
 
     .section-header h2 {
 
-        font-size: 27px;
+        font-size: 20px;
 
     }
 
