@@ -21,43 +21,28 @@ const EXCHANGE_RATE = 185.57 * 1.02;
 
 
 // ========================================
-// MAIN ELEMENTS
-// ========================================
-
-const itemsContainer =
-    document.querySelector("#items-container");
-
-
-const addItemButton =
-    document.querySelector("#add-item");
-
-
-const resetButton =
-    document.querySelector("#reset");
-
-
-// ========================================
-// JASTIP / HANDLING FEE RULE
+// HANDLING FEE RULE
 // ========================================
 
 function getHandlingFee(weight) {
 
-    if (weight < 300) {
-
-        return 80000;
-
+    if (weight <= 300) {
+        return 90000;
     }
 
-
-    if (weight <= 450) {
-
+    if (weight <= 499) {
         return 120000;
-
     }
 
+    if (weight <= 599) {
+        return 150000;
+    }
 
-    return 170000;
+    if (weight <= 1050) {
+        return 300000;
+    }
 
+    return null;
 }
 
 
@@ -74,35 +59,30 @@ function formatIDR(amount) {
 
 
 // ========================================
-// CALCULATE ONE BOOK
+// CALCULATE TOTAL
 // ========================================
 
-function calculateItemTotal(item) {
-
+function calculateTotal() {
 
     const priceInput =
-        item.querySelector(".product-price");
-
+        document.querySelector(".product-price");
 
     const weightInput =
-        item.querySelector(".product-weight");
-
+        document.querySelector(".product-weight");
 
     const totalDisplay =
-        item.querySelector(".item-total-price");
+        document.querySelector(".item-total-price");
 
 
     const price =
         parseFloat(priceInput.value);
-
 
     const weight =
         parseFloat(weightInput.value);
 
 
     // ====================================
-    // DO NOT CALCULATE UNTIL BOTH
-    // PRICE AND WEIGHT ARE ENTERED
+    // WAIT UNTIL BOTH VALUES ARE ENTERED
     // ====================================
 
     if (
@@ -113,12 +93,11 @@ function calculateItemTotal(item) {
         totalDisplay.textContent = "0";
 
         return;
-
     }
 
 
     // ====================================
-    // Convert book price from INR to IDR
+    // CONVERT INR TO IDR
     // ====================================
 
     const bookPriceIDR =
@@ -126,7 +105,7 @@ function calculateItemTotal(item) {
 
 
     // ====================================
-    // Handling + packaging fee
+    // GET HANDLING FEE
     // ====================================
 
     const handlingFee =
@@ -134,253 +113,75 @@ function calculateItemTotal(item) {
 
 
     // ====================================
-    // Total price per book
+    // ABOVE 1050 GRAMS
+    // ====================================
+
+    if (handlingFee === null) {
+
+        totalDisplay.textContent =
+            "Please contact via WA";
+
+        return;
+    }
+
+
+    // ====================================
+    // CALCULATE TOTAL
     // ====================================
 
     const totalPrice =
-        bookPriceIDR
-        + handlingFee;
+        bookPriceIDR + handlingFee;
 
 
-// ====================================
-// Round UP to nearest IDR 1,000
-// ====================================
+    // ====================================
+    // ROUND UP TO NEAREST 1,000 IDR
+    // ====================================
 
-const roundedTotal =
-    Math.ceil(totalPrice / 1000) * 1000;
+    const roundedTotal =
+        Math.ceil(totalPrice / 1000) * 1000;
 
 
-totalDisplay.textContent =
-    formatIDR(roundedTotal);
+    // ====================================
+    // DISPLAY RESULT
+    // ====================================
+
+    totalDisplay.textContent =
+        formatIDR(roundedTotal);
 
 }
 
 
 // ========================================
-// CALCULATE ALL BOOKS
+// INPUT LISTENERS
 // ========================================
 
-function calculateTotals() {
+const priceInput =
+    document.querySelector(".product-price");
 
 
-    const items =
-        document.querySelectorAll(".item");
+const weightInput =
+    document.querySelector(".product-weight");
 
 
-    items.forEach(function (item) {
-
-        calculateItemTotal(item);
-
-    });
-
-}
-
-
-// ========================================
-// ADD NEW BOOK
-// ========================================
-
-function addItem() {
-
-
-    const item =
-        document.createElement("div");
-
-
-    item.className =
-        "item";
-
-
-    item.innerHTML = `
-
-        <div class="form-group">
-
-            <label>
-                Harga buku (Rs)
-            </label>
-
-            <div class="input-with-prefix">
-
-                <span>₹</span>
-
-                <input
-                    type="number"
-                    class="product-price"
-                    placeholder="Masukkan harga buku"
-                    min="0"
-                    step="0.01"
-                >
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>
-                Berat buku (gram)
-            </label>
-
-            <input
-                type="number"
-                class="product-weight"
-                placeholder="Masukkan berat buku"
-                min="0"
-                step="1"
-            >
-
-        </div>
-
-
-        <div class="form-group total-price-group">
-
-            <label>
-                Total harga* (IDR)
-            </label>
-
-            <div class="total-price-display">
-
-                <span class="total-price-currency">
-                    IDR
-                </span>
-
-                <span class="item-total-price">
-                    0
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="remarks">
-
-            <div>
-                * Total harga (IDR) mencakup harga barang,
-                handling, dan packaging
-            </div>
-
-            <div>
-                ** Tidak termasuk harga ongkir dari Jakarta Pusat
-            </div>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="remove-item"
-        >
-            Hapus Buku
-        </button>
-
-    `;
-
-
-    itemsContainer.appendChild(item);
-
-
-    // ====================================
-    // Remove Book
-    // ====================================
-
-    const removeButton =
-        item.querySelector(".remove-item");
-
-
-    removeButton.addEventListener(
-        "click",
-        function () {
-
-            item.remove();
-
-        }
-    );
-
-
-    // ====================================
-    // Watch Inputs
-    // ====================================
-
-    const priceInput =
-        item.querySelector(".product-price");
-
-
-    const weightInput =
-        item.querySelector(".product-weight");
-
-
-    priceInput.addEventListener(
-        "input",
-        function () {
-
-            calculateItemTotal(item);
-
-        }
-    );
-
-
-    weightInput.addEventListener(
-        "input",
-        function () {
-
-            calculateItemTotal(item);
-
-        }
-    );
-
-
-    calculateItemTotal(item);
-
-}
-
-
-// ========================================
-// ADD BOOK BUTTON
-// ========================================
-
-addItemButton.addEventListener(
-    "click",
-    addItem
+priceInput.addEventListener(
+    "input",
+    calculateTotal
 );
 
 
-// ========================================
-// FIRST BOOK LISTENERS
-// ========================================
-
-const firstItem =
-    document.querySelector(".item");
-
-
-firstItem
-    .querySelector(".product-price")
-    .addEventListener(
-        "input",
-        function () {
-
-            calculateItemTotal(firstItem);
-
-        }
-    );
-
-
-firstItem
-    .querySelector(".product-weight")
-    .addEventListener(
-        "input",
-        function () {
-
-            calculateItemTotal(firstItem);
-
-        }
-    );
+weightInput.addEventListener(
+    "input",
+    calculateTotal
+);
 
 
 // ========================================
 // RESET
 // ========================================
+
+const resetButton =
+    document.querySelector("#reset");
+
 
 resetButton.addEventListener(
     "click",
@@ -393,7 +194,7 @@ resetButton.addEventListener(
 
 
 // ========================================
-// INITIAL CALCULATION
+// INITIAL STATE
 // ========================================
 
-calculateTotals();
+calculateTotal();
