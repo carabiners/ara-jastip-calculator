@@ -104,9 +104,9 @@ body {
 
 .brand-logo {
 
-    width: 300px;
+    width: 400px;
 
-    max-width: 75%;
+    max-width: 100%;
 
     height: auto;
 
@@ -741,7 +741,7 @@ input:focus {
 
     .brand-logo {
 
-        width: 100px;
+        width: 150px;
 
     }
 
