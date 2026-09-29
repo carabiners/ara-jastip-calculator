@@ -142,7 +142,7 @@ body {
 
     text-align: center;
 
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 
 }
 
@@ -489,7 +489,7 @@ input:focus {
 
 .remarks {
 
-    margin-top: 14px;
+    margin-top: 8px;
 
     padding: 13px 15px;
 
@@ -556,7 +556,7 @@ input:focus {
 
 .info-card h2 {
 
-    margin: 0 0 18px;
+    margin: 0 0 10px;
 
     color: var(--brown);
 
@@ -575,8 +575,8 @@ input:focus {
 .info-card p {
 
     margin: 0 0 18px;
-
-    line-height: 1.2;
+    font-size: 14px;
+    line-height: 1px;
 
 }
 
@@ -596,7 +596,7 @@ input:focus {
 
     margin-bottom: 10px;
 
-    line-height: 1.2;
+    line-height: 1.0;
 
     font-size: 13px;
 
@@ -656,13 +656,13 @@ input:focus {
 
     padding: 15px;
 
-    margin-top: 22px;
+    margin-top: 15px;
 
-    background: transparent;
+    background: var(--saffron-dark);
 
-    color: var(--saffron-dark);
+    color: var(--white);
 
-    border: 2px solid var(--saffron);
+    border: 2px solid var(--white);
 
     font-size: 16px;
 
@@ -673,7 +673,7 @@ input:focus {
 
 .reset-button:hover {
 
-    background: var(--saffron-light);
+    background: var(--saffron-dark);
 
 }
 
@@ -734,7 +734,7 @@ input:focus {
 
         height: 125px;
 
-        padding: 15px;
+        padding: 5px;
 
     }
 
@@ -845,6 +845,6 @@ input:focus {
 
     border-radius: 10px;
 
-    line-height: 1.2;
+    line-height: 1.0;
 
 }
