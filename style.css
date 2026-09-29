@@ -577,7 +577,8 @@ input:focus {
 
 .info-card p {
 
-    margin: 0 0 18px;
+    margin-top: 8px;
+    margin-bottom: 12px;
     font-size: 14px;
     line-height: 1.2px;
     height: auto;
