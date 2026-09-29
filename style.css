@@ -225,7 +225,7 @@ body {
 
     margin: 0;
 
-    color: var(--saffron-dark);
+    color: var(--brown);
 
     font-family:
         Calibri,
@@ -558,7 +558,7 @@ input:focus {
 
     margin: 0 0 18px;
 
-    color: var(--saffron-dark);
+    color: var(--brown);
 
     font-family:
         Calibri,
@@ -826,5 +826,19 @@ input:focus {
         text-align: center;
 
     }
+
+}
+
+.instructions-box {
+
+    padding: 17px;
+
+    background: var(--saffron-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    line-height: 1.8;
 
 }
