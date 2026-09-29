@@ -53,7 +53,7 @@ function getHandlingFee(weight) {
 function formatIDR(amount) {
 
     return Math.round(amount)
-        .toLocaleString("en-IN");
+        .toLocaleString("en-US");
 
 }
 
