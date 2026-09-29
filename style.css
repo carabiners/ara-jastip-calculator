@@ -580,6 +580,7 @@ input:focus {
     margin: 0 0 18px;
     font-size: 14px;
     line-height: 1.2px;
+    height: auto;
 
 }
 
@@ -866,5 +867,5 @@ input:focus {
 }
 
 .instructions-box ol ol li {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
