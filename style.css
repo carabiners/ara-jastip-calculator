@@ -845,8 +845,8 @@ input:focus {
     background: var(--saffron-soft);
     border: 1px solid var(--border);
     border-radius: 10px;
-    line-height: 1.5;
-    word-spacing: 3px;
+    line-height: 1.2;
+    word-spacing: 1.5px;
 }
 
 .instructions-box > ol {
@@ -855,7 +855,7 @@ input:focus {
 }
 
 .instructions-box > ol > li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .instructions-box > ol > li:last-child {
