@@ -34,13 +34,13 @@ function getHandlingFee(weight) {
         return 120000;
     }
 
-    if (weight <= 599) {
+    if (weight <= 550) {
         return 150000;
     }
 
-    if (weight <= 1050) {
-        return 300000;
-    }
+    // if (weight <= 1050) {
+    //     return 300000;
+    // }
 
     return null;
 }
